@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "hack-font";
+}
+
+body {
+  margin: 50px 5vh;
+  background-color: #130f0d;
+  color: white;
+}
+
+.myPadding, .boards .board .dropzone .card, .boards .board {
+  padding: 15px 10px;
+}
+
+.myRadius, .boards .board .dropzone .card, .boards .board {
+  border-radius: 5px;
+}
+
+.myTransition, .boards .board .dropzone .card:hover .yellow, .boards .board .dropzone .card:hover .red, .boards .board .dropzone .card:hover .green, .boards .board .dropzone .card__status, .boards .board .dropzone .card, .boards .board .dropzone {
+  transition: all 200ms ease-in-out;
+}
+
+.green {
+  background-color: #147b64;
+}
+
+.red {
+  background-color: #790711;
+}
+
+.yellow {
+  background-color: #989710;
+}
+
+.hightlight {
+  background-color: rgba(253, 149, 31, 0.0666666667);
+}
+
+.isdragging {
+  cursor: move;
+  opacity: 0.5;
+}
+
+.dragover {
+  background-color: #0d4f41;
+}
+
+.boards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+.boards .board {
+  border: 1px solid rgba(253, 149, 31, 0.0666666667);
+  background-color: #141516;
+}
+.boards .board__title {
+  color: rgba(253, 149, 31, 0.8);
+}
+.boards .board .dropzone {
+  min-height: 100px;
+  padding: 16px 0;
+}
+.boards .board .dropzone .card {
+  margin: 25px 0;
+  font-weight: 600;
+  font-size: 18px;
+  box-shadow: 0px 1px 1px -1px rgba(231, 124, 2, 0.8);
+  background-color: #1a1a1c;
+}
+.boards .board .dropzone .card__status {
+  width: 10px;
+  height: 8px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+}
+.boards .board .dropzone .card:hover {
+  box-shadow: 1px 2px 2px -1px rgba(253, 149, 31, 0.8);
+}
+.boards .board .dropzone .card:hover .card__status {
+  width: 50px;
+}
+.boards .board .dropzone .card:hover .green {
+  background-color: #23d2ac;
+}
+.boards .board .dropzone .card:hover .red {
+  background-color: #D90D1E;
+}
+.boards .board .dropzone .card:hover .yellow {
+  background-color: #E8E626;
+}
+
+/*# sourceMappingURL=style.css.map */

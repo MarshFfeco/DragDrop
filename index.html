@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.min.css" integrity="sha512-XgCw4Srl8lC1ECwcaHwAU0WnxQwHkqmInzg9wJLtGB7DRuMaXPuK2k9WJ2AwRDGdrgK9eJpZl2hUlLi2WQssmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Kanban Test</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+</head>
+<body>
+    <main class="boards">
+        <!-- START BOARD TO DO -->        
+        <section class="board">
+            <h2 class="board__title">To Do</h2>
+
+            <div class="dropzone">
+                <div class="card" draggable="true">
+                    <div class="card__status yellow"></div>
+                    <div class="card__contents"> Alguma coisa 1</div>
+                </div>
+            </div>
+        </section>
+        <!-- END BOARD TO DO-->
+
+        <!-- START BOARD IN PROGRESS -->
+        <section class="board">
+            <h2 class="board__title">In Progress</h2>
+
+            <div class="dropzone">
+                <div class="card" draggable="true">
+                    <div class="card__status red"></div>
+                    <div class="card__contents"> Alguma coisa 2</div>
+                </div>
+            </div>
+        </section>
+        <!-- END BOARD IN PROGRESS -->
+
+            <!-- START BOARD DONE -->
+        <section class="board">
+            <h2 class="board__title">Done</h2>
+
+            <div class="dropzone">
+                <div class="card" draggable="true">
+                    <div class="card__status green"></div>
+                    <div class="card__contents"> Alguma coisa 3</div>
+                </div>
+            </div>
+        </section>
+        <!-- END BOARD DONE -->
+    </main>
+
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>

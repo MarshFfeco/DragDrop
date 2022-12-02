@@ -1,0 +1,143 @@
+$background-color: #130f0d;
+$background-board: #141516;
+$background-card: #1a1a1c;
+
+$bord-color-board: #fd951f11;
+
+$font-color-board: #fd951fcc;
+
+$card-status-green: #23d2ac;
+$card-status-red: #D90D1E;
+$card-status-yellow: #E8E626;
+
+$transition: all 200ms ease-in-out; 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'hack-font';
+}
+
+body {
+    margin: 50px 5vh;
+
+    background-color: $background-color;
+    color: white;
+}
+
+/////////////////////
+/// GENERAL CLASS, HEHE
+////////////////
+.myPadding {
+    padding: 15px 10px;
+}
+
+.myRadius {
+    border-radius: 5px;
+}
+
+.myTransition {
+    transition: $transition;
+}
+
+.green{ background-color: darken($card-status-green, 20%); }
+
+.red{ background-color: darken($card-status-red, 20%); }
+
+.yellow{ background-color: darken($card-status-yellow, 20%); }
+
+
+/////////////////////
+/// JS, Change My Mind
+////////////////
+.hightlight { background-color: $bord-color-board; }
+
+.isdragging {
+    cursor: move;
+    opacity: 0.5;
+}
+
+.dragover { background-color: darken($card-status-green, 30%); }
+
+/// /////////////////////
+/// CoDiNg, KkKk
+////////////////
+.boards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+
+    .board {
+        @extend .myPadding;
+
+        @extend .myRadius;
+        border: 1px solid $bord-color-board;
+
+        background-color: $background-board;
+
+        &__title {
+            color: $font-color-board;
+        }
+
+        .dropzone {
+            min-height: 100px;
+            padding: 16px 0;
+
+            @extend .myTransition;
+
+            .card {
+                margin: 25px 0;
+                @extend .myPadding;
+
+                @extend .myRadius;
+
+                font-weight: 600;
+                font-size: 18px;
+
+                box-shadow: 0px 1px 1px -1px darken($font-color-board, 10%);
+
+                background-color: $background-card;
+
+                @extend .myTransition;
+
+                &__status {
+                    width: 10px;
+                    height: 8px;
+
+                    margin-bottom: 16px;
+
+                    border-radius: 8px;
+
+                    @extend .myTransition;
+                }
+                
+                &:hover { 
+                    box-shadow: 1px 2px 2px -1px $font-color-board; 
+
+                    .card__status {
+                        width: 50px;
+                    }
+
+                    .green {
+                        background-color: $card-status-green;
+                        @extend .myTransition;
+                    }
+
+                    .red {
+                        background-color: $card-status-red;
+                        @extend .myTransition;
+                    }
+
+                    .yellow {
+                        background-color: $card-status-yellow;
+                        @extend .myTransition;
+                    }
+                }
+            }
+        }
+    }
+}
