@@ -23,10 +23,30 @@ html {
 }
 
 body {
+    min-width: 250px;
+
     margin: 50px 5vh;
 
     background-color: $background-color;
     color: white;
+}
+
+button {
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+}
+
+i {
+    color: $font-color-board;
+    
+    cursor: pointer;
+
+    @extend .myTransition;
+        &:hover {
+            transform: scale(1.2);
+        }
 }
 
 /////////////////////
@@ -42,6 +62,13 @@ body {
 
 .myTransition {
     transition: $transition;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .green{ background-color: darken($card-status-green, 20%); }
@@ -70,72 +97,225 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
+}
 
-    .board {
-        @extend .myPadding;
+.board {
+    @extend .myPadding;
 
-        @extend .myRadius;
-        border: 1px solid $bord-color-board;
+    @extend .myRadius;
+    border: 1px solid $bord-color-board;
 
-        background-color: $background-board;
+    background-color: $background-board;
 
-        &__title {
-            color: $font-color-board;
-        }
+    &__title {
+        color: $font-color-board;
+    }
 
-        .dropzone {
-            min-height: 100px;
-            padding: 16px 0;
+    .dropzone {
+        min-height: 100px;
+        padding: 16px 0;
+
+        @extend .myTransition;
+
+        .card {
+            margin: 25px 0;
+            @extend .myPadding;
+
+            @extend .myRadius;
+
+            font-weight: 600;
+            font-size: 18px;
+
+            box-shadow: 0px 1px 1px -1px darken($font-color-board, 10%);
+
+            background-color: $background-card;
 
             @extend .myTransition;
 
-            .card {
-                margin: 25px 0;
-                @extend .myPadding;
+            &__status {
+                width: 10px;
+                height: 8px;
 
-                @extend .myRadius;
+                margin-bottom: 16px;
 
-                font-weight: 600;
-                font-size: 18px;
+                border-radius: 8px;
 
-                box-shadow: 0px 1px 1px -1px darken($font-color-board, 10%);
+                @extend .myTransition;
+            }
+            
+            &:hover { 
+                box-shadow: 1px 2px 2px -1px $font-color-board; 
+
+                .card__status {
+                    width: 50px;
+                }
+
+                .green {
+                    background-color: $card-status-green;
+                    @extend .myTransition;
+                }
+
+                .red {
+                    background-color: $card-status-red;
+                    @extend .myTransition;
+                }
+
+                .yellow {
+                    background-color: $card-status-yellow;
+                    @extend .myTransition;
+                }
+            }
+        }
+    }
+}
+
+.add {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    margin-top: 50px;
+
+    &__make {
+        text-align: right;
+
+        button {
+            border: none;
+            box-shadow: 0px 1px 1px -1px darken($font-color-board, 10%);
+            color: $font-color-board;
+            padding: 15px 10px;
+            border-radius: 20px;
+            background-color: $background-card;
+            cursor: pointer; 
+            opacity: 0.7;
+
+            transition: all 200ms;
+            
+            &:hover {
+                transform: scale(1.1);
+                opacity: 1;
+                box-shadow: 1px 2px 2px -1px $font-color-board; 
+            }
+        }
+    }
+}
+
+#form {
+    width: 100%;
+    height: 100%;
+
+    padding: 20px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    @extend .flex-center;
+
+    background-color: rgba($color: #000000, $alpha: 0.7);
+
+    .btn_close {
+        margin-top: 5px;
+
+        @extend .flex-center;
+        align-items: flex-end;
+    }
+
+    #make-board {
+        padding: 10px 25px 50px 25px;
+
+        border-radius: 20px;
+
+        box-shadow: 1px 2px 2px -1px $font-color-board; 
+
+        background-color: $background-board;
+
+        .textfield {
+            @extend .flex-center;
+
+            margin-top: 50px;
+
+            .title {
+                align-self: flex-start;
+
+                margin-bottom: 5px;
+
+                font-size: 2em;
+
+                color: $font-color-board;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                height: 50px;
+                padding: 10px;
+
+                border: none;
+                border-radius: 20px;
+
+                color: $font-color-board;
+
+                box-shadow: 0px 1px 1px -1px darken($font-color-board, 10%); 
+                background-color: $background-card;
+
+                font-size: 1.4em;
+
+                &:focus {
+                    box-shadow: 1px 2px 2px -1px $font-color-board; 
+                    outline: none;
+                }
+            }
+
+            button {
+                padding: 10px 50px;
+
+                appearance: none;
+                border: none;
+
+                color: $font-color-board;
+                
+                font-size: 1.5em;
+
+                border-radius: 20px;
 
                 background-color: $background-card;
+                box-shadow: 0px 1px 1px -1px darken($font-color-board, 10%);
+
+                cursor: pointer;
 
                 @extend .myTransition;
 
-                &__status {
-                    width: 10px;
-                    height: 8px;
-
-                    margin-bottom: 16px;
-
-                    border-radius: 8px;
-
-                    @extend .myTransition;
-                }
-                
-                &:hover { 
+                &:hover {
                     box-shadow: 1px 2px 2px -1px $font-color-board; 
+                }
+            }
+        }
 
-                    .card__status {
-                        width: 50px;
-                    }
+        .radio {
+            width: 100%;
 
-                    .green {
-                        background-color: $card-status-green;
-                        @extend .myTransition;
-                    }
+            font-size: 1.5em;
 
-                    .red {
-                        background-color: $card-status-red;
-                        @extend .myTransition;
-                    }
+            display: grid;
+            grid-template-columns: .7em auto;
+            gap: 0.5em;
 
-                    .yellow {
-                        background-color: $card-status-yellow;
-                        @extend .myTransition;
-                    }
+            input[type="radio"] {
+                -webkit-appearance: none;
+                appearance: none;
+
+                justify-self: center;
+                align-self: center;
+
+                font: inherit;
+                color: $font-color-board;
+                width: .7em;
+                height: .7em;
+                border: 0.1em solid $font-color-board;
+                border-radius: 50%;
+
+                &:checked {
+                    background-color: $font-color-board;
                 }
             }
         }

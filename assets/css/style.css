@@ -9,21 +9,44 @@ html {
 }
 
 body {
+  min-width: 250px;
   margin: 50px 5vh;
   background-color: #130f0d;
   color: white;
 }
 
-.myPadding, .boards .board .dropzone .card, .boards .board {
+button {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+}
+
+i {
+  color: rgba(253, 149, 31, 0.8);
+  cursor: pointer;
+}
+i:hover {
+  transform: scale(1.2);
+}
+
+.myPadding, .board .dropzone .card, .board {
   padding: 15px 10px;
 }
 
-.myRadius, .boards .board .dropzone .card, .boards .board {
+.myRadius, .board .dropzone .card, .board {
   border-radius: 5px;
 }
 
-.myTransition, .boards .board .dropzone .card:hover .yellow, .boards .board .dropzone .card:hover .red, .boards .board .dropzone .card:hover .green, .boards .board .dropzone .card__status, .boards .board .dropzone .card, .boards .board .dropzone {
+.myTransition, #form #make-board .textfield button, .board .dropzone .card:hover .yellow, .board .dropzone .card:hover .red, .board .dropzone .card:hover .green, .board .dropzone .card__status, .board .dropzone .card, .board .dropzone, i {
   transition: all 200ms ease-in-out;
+}
+
+.flex-center, #form #make-board .textfield, #form .btn_close, #form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .green {
@@ -56,44 +79,151 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
 }
-.boards .board {
+
+.board {
   border: 1px solid rgba(253, 149, 31, 0.0666666667);
   background-color: #141516;
 }
-.boards .board__title {
+.board__title {
   color: rgba(253, 149, 31, 0.8);
 }
-.boards .board .dropzone {
+.board .dropzone {
   min-height: 100px;
   padding: 16px 0;
 }
-.boards .board .dropzone .card {
+.board .dropzone .card {
   margin: 25px 0;
   font-weight: 600;
   font-size: 18px;
   box-shadow: 0px 1px 1px -1px rgba(231, 124, 2, 0.8);
   background-color: #1a1a1c;
 }
-.boards .board .dropzone .card__status {
+.board .dropzone .card__status {
   width: 10px;
   height: 8px;
   margin-bottom: 16px;
   border-radius: 8px;
 }
-.boards .board .dropzone .card:hover {
+.board .dropzone .card:hover {
   box-shadow: 1px 2px 2px -1px rgba(253, 149, 31, 0.8);
 }
-.boards .board .dropzone .card:hover .card__status {
+.board .dropzone .card:hover .card__status {
   width: 50px;
 }
-.boards .board .dropzone .card:hover .green {
+.board .dropzone .card:hover .green {
   background-color: #23d2ac;
 }
-.boards .board .dropzone .card:hover .red {
+.board .dropzone .card:hover .red {
   background-color: #D90D1E;
 }
-.boards .board .dropzone .card:hover .yellow {
+.board .dropzone .card:hover .yellow {
   background-color: #E8E626;
+}
+
+.add {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  margin-top: 50px;
+}
+.add__make {
+  text-align: right;
+}
+.add__make button {
+  border: none;
+  box-shadow: 0px 1px 1px -1px rgba(231, 124, 2, 0.8);
+  color: rgba(253, 149, 31, 0.8);
+  padding: 15px 10px;
+  border-radius: 20px;
+  background-color: #1a1a1c;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 200ms;
+}
+.add__make button:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: 1px 2px 2px -1px rgba(253, 149, 31, 0.8);
+}
+
+#form {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#form .btn_close {
+  margin-top: 5px;
+  align-items: flex-end;
+}
+#form #make-board {
+  padding: 10px 25px 50px 25px;
+  border-radius: 20px;
+  box-shadow: 1px 2px 2px -1px rgba(253, 149, 31, 0.8);
+  background-color: #141516;
+}
+#form #make-board .textfield {
+  margin-top: 50px;
+}
+#form #make-board .textfield .title {
+  align-self: flex-start;
+  margin-bottom: 5px;
+  font-size: 2em;
+  color: rgba(253, 149, 31, 0.8);
+}
+#form #make-board .textfield input[type=text] {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  color: rgba(253, 149, 31, 0.8);
+  box-shadow: 0px 1px 1px -1px rgba(231, 124, 2, 0.8);
+  background-color: #1a1a1c;
+  font-size: 1.4em;
+}
+#form #make-board .textfield input[type=text]:focus {
+  box-shadow: 1px 2px 2px -1px rgba(253, 149, 31, 0.8);
+  outline: none;
+}
+#form #make-board .textfield button {
+  padding: 10px 50px;
+  appearance: none;
+  border: none;
+  color: rgba(253, 149, 31, 0.8);
+  font-size: 1.5em;
+  border-radius: 20px;
+  background-color: #1a1a1c;
+  box-shadow: 0px 1px 1px -1px rgba(231, 124, 2, 0.8);
+  cursor: pointer;
+}
+#form #make-board .textfield button:hover {
+  box-shadow: 1px 2px 2px -1px rgba(253, 149, 31, 0.8);
+}
+#form #make-board .radio {
+  width: 100%;
+  font-size: 1.5em;
+  display: grid;
+  grid-template-columns: 0.7em auto;
+  gap: 0.5em;
+}
+#form #make-board .radio input[type=radio] {
+  -webkit-appearance: none;
+  appearance: none;
+  justify-self: center;
+  align-self: center;
+  font: inherit;
+  color: rgba(253, 149, 31, 0.8);
+  width: 0.7em;
+  height: 0.7em;
+  border: 0.1em solid rgba(253, 149, 31, 0.8);
+  border-radius: 50%;
+}
+#form #make-board .radio input[type=radio]:checked {
+  background-color: rgba(253, 149, 31, 0.8);
 }
 
 /*# sourceMappingURL=style.css.map */

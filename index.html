@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.min.css" integrity="sha512-XgCw4Srl8lC1ECwcaHwAU0WnxQwHkqmInzg9wJLtGB7DRuMaXPuK2k9WJ2AwRDGdrgK9eJpZl2hUlLi2WQssmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Kanban Test</title>
     <link rel="stylesheet" href="assets/css/style.css">
     
@@ -51,6 +52,55 @@
         <!-- END BOARD DONE -->
     </main>
 
+    <section class="add board">
+        <h2 class="board__title">Add</h2>
+        
+        <div class="add__make">
+            <button id="open_board">Make Card</button>
+        </div>
+
+        <div id="add-zone" class="dropzone" style="grid-column: 1 / span 3;">
+            <div class="card" draggable="true">
+                <div class="card__status yellow"></div>
+                <div class="card__contents"> Alguma coisa 1</div>
+            </div>
+        </div>
+    </section>
+
+    <div id="form">
+        <form  method="get" id="make-board">
+            <div class="btn_close">
+                <i id="btn_close" class="fa-solid fa-xmark"></i>
+            </div>
+
+            <div class="textfield">
+                <label class="title" for="name">Name</label>
+                <input type="text" name="name" autocomplete="off" required>
+            </div>            
+
+            <div class="textfield">
+                <label class="title">Priority</label>
+
+                <div class="radio">
+                    <input type="radio" name="priority" value="green">
+                    <label>Green</label>
+    
+                    <input type="radio" name="priority" value="yellow">
+                    <label>Yellow</label>
+    
+                    <input type="radio" name="priority" value="red" checked>
+                    <label>Red</label>
+                </div>
+            </div>        
+            
+            <div class="textfield">
+                <button type="submit">Make</button>
+            </div>
+        </form>
+
+        <div class="exit"></div>
+    </div>
+    
     <script src="assets/js/main.js" defer></script>
 </body>
 </html>
